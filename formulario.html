@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body{
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20220917/pngtree-product-photography-studio-backgroundabstract-purple-gradient-lighting-in-an-empty-room-photo-image_39137478.jpg'); /* Imagen de fondo */
+            background-size: cover; /* Ajusta la imagen al tamaño de la ventana */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura completa de la ventana */
+            
+        }
+        /* Estilos para el contenedor del formulario (card) */
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            padding: 20px;
+            text-align: center;
+            
+        }
+
+        /* Estilos para los campos del formulario */
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Estilo del botón de envío */
+        input[type="submit"] {
+            background-color: #ee51f4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #b843f3;
+        }
+
+        /* Estilo del mensaje de error */
+        .error {
+            font-size: 18px;
+        }
+
+        /* Estilo del título */
+        h2 {
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Formulario de Registro</h2>
+        <form id="formulario" onsubmit="return validarFormulario()">
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre"><br><br>
+
+            <!-- Etiqueta para mostrar el mensaje de error -->
+            <span id="noname" class="error"></span><br><br>
+
+            <input type="submit" value="Registrarse">
+        </form>
+    </div>
+
+    <script>
+        // Función que valida si el campo de nombre está vacío
+        function validarFormulario() {
+            const nombre = document.getElementById("nombre").value;
+            const noname = document.getElementById("noname");
+
+            if (nombre === "") {
+                // Si está vacío, muestra un mensaje de error en color rosa
+                noname.textContent = "!Error! Por favor, introduce tu nombre.";
+                noname.style.color = "pink"; // Cambia el color del mensaje de error
+                return false; // Evita el envío del formulario
+            } else {
+                noname.textContent = ""; // Limpia el mensaje de error si hay nombre
+            }
+        }
+
+        
+    </script>
+
+</body>
+</html>
